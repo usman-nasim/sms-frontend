@@ -23,7 +23,7 @@ export default function RootLayout({
               <div className="flex justify-between h-16">
                 <div className="flex">
                   <div className="flex-shrink-0 flex items-center">
-                    <span className="text-2xl font-bold text-gray-800">SMS Portal</span>
+                    <span className="text-2xl font-bold text-black">SMS Portal</span>
                   </div>
                 </div>
               </div>

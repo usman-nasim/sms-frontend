@@ -20,7 +20,7 @@ export default function KeywordList({ keywords, onKeywordUpdated }: KeywordListP
 
   const handleDelete = async (keyword: string) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/keyword/keywords/${keyword}`, {
+      const response = await fetch(`http://192.168.111.43:8000/api/keyword/keywords/${keyword}`, {
         method: 'DELETE',
       })
       if (!response.ok) {
@@ -42,7 +42,7 @@ export default function KeywordList({ keywords, onKeywordUpdated }: KeywordListP
     if (!editingKeyword) return
 
     try {
-      const response = await fetch(`http://localhost:8000/api/keyword/keywords/${editingKeyword.keyword}`, {
+      const response = await fetch(`http://192.168.111.43:8000/api/keyword/keywords/${editingKeyword.keyword}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -64,7 +64,7 @@ export default function KeywordList({ keywords, onKeywordUpdated }: KeywordListP
   }
 
   if (keywords.length === 0) {
-    return <p>No keywords found. Add a new keyword to get started.</p>
+    return <p className="text-black">No keywords found. Add a new keyword to get started.</p>
   }
 
   return (
@@ -78,11 +78,11 @@ export default function KeywordList({ keywords, onKeywordUpdated }: KeywordListP
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
           </tr>
         </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
+        <tbody className="bg-white  text-black">
           {keywords.map((keyword) => (
             <tr key={keyword.id}>
-              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{keyword.keyword}</td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{keyword.template}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-black">{keyword.keyword}</td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm text-black">{keyword.template}</td>
               <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                 <button
                   onClick={() => handleEdit(keyword)}
@@ -102,7 +102,7 @@ export default function KeywordList({ keywords, onKeywordUpdated }: KeywordListP
         </tbody>
       </table>
       {editingKeyword && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
+        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full text-black">
           <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
             <h3 className="text-lg font-medium leading-6 text-gray-900 mb-4">Edit Keyword</h3>
             <form onSubmit={handleUpdate}>
@@ -150,4 +150,3 @@ export default function KeywordList({ keywords, onKeywordUpdated }: KeywordListP
     </div>
   )
 }
-

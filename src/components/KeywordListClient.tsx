@@ -13,7 +13,7 @@ export default function KeywordListClient() {
     setIsLoading(true)
     setError(null)
     try {
-      const response = await fetch('http://localhost:8000/api/keyword/keywords')
+      const response = await fetch('http://192.168.111.43:8000/api/keyword/keywords')
       if (!response.ok) {
         throw new Error('Failed to fetch keywords')
       }

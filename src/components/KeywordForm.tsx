@@ -15,7 +15,7 @@ export default function KeywordForm({ onKeywordAdded }: KeywordFormProps) {
     e.preventDefault()
     setError('')
     try {
-      const response = await fetch('http://localhost:8000/api/keyword/keywords', {
+      const response = await fetch('http://192.168.111.43:8000/api/keyword/keywords', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -48,11 +48,11 @@ export default function KeywordForm({ onKeywordAdded }: KeywordFormProps) {
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-black"
         />
       </div>
       <div>
-        <label htmlFor="template" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="template" className="block text-sm font-medium text-black">
           Template
         </label>
         <textarea
@@ -62,7 +62,7 @@ export default function KeywordForm({ onKeywordAdded }: KeywordFormProps) {
           onChange={(e) => setTemplate(e.target.value)}
           required
           rows={3}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          className="mt-1 block w-full text-black rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         ></textarea>
       </div>
       {error && (
@@ -77,4 +77,3 @@ export default function KeywordForm({ onKeywordAdded }: KeywordFormProps) {
     </form>
   )
 }
-
